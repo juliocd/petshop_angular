@@ -28,4 +28,7 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

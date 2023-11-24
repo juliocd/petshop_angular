@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    height: 100%;
+}
+
+body {
+    font-family: 'Baloo Paaji 2';
+    height: 100%;
+}
+
+.main-color {
+    color: #212c5f
+}
+
+.secondary-color {
+    color: #e17835;
+}
+
+.icon-color {
+    color: #CECECE;
+}
+
+.h-inherit {
+    height: inherit;
+}
