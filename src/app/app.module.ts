@@ -7,6 +7,7 @@ import { BookAppointmentComponent } from './components/book-appointment/book-app
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ToysAndAccessoriesComponent } from './components/toys-and-accessories/toys-and-accessories.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/commons/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './components/home/home.component';
     BookAppointmentComponent,
     ContactUsComponent,
     ToysAndAccessoriesComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
