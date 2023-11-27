@@ -9,6 +9,7 @@ import { ToysAndAccessoriesComponent } from './components/toys-and-accessories/t
 import { HomeComponent } from './components/home/home.component';
 import { PetsComponent } from './components/pets/pets.component';
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
+import { PetCardComponent } from './components/commons/pet-card/pet-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './components/commons/navbar/navbar.component';
     ToysAndAccessoriesComponent,
     HomeComponent,
     PetsComponent,
-    NavbarComponent
+    NavbarComponent,
+    PetCardComponent
   ],
   imports: [
     BrowserModule,
