@@ -28,6 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Tailwind styles
 https://tailwindcss.com/docs/installation
+If styles do not charge properly, to remove `.angular` folder and restart the app
 
 ## Icons
 https://heroicons.com/
