@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap');
 
+@import '/src/lib/mat/mat.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,4 +42,8 @@ a:hover {
 
 .font-semibold {
     font-weight: 900;
+}
+
+.text-500 {
+    font-weight: 500;
 }

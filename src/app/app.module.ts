@@ -10,6 +10,17 @@ import { HomeComponent } from './components/home/home.component';
 import { PetsComponent } from './components/pets/pets.component';
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
 import { PetCardComponent } from './components/commons/pet-card/pet-card.component';
+import { ItemCardComponent } from './components/commons/item-card/item-card.component';
+
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PetRecommendationsComponent } from './components/commons/pet-recommendations/pet-recommendations.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,11 +31,20 @@ import { PetCardComponent } from './components/commons/pet-card/pet-card.compone
     HomeComponent,
     PetsComponent,
     NavbarComponent,
-    PetCardComponent
+    PetCardComponent,
+    ItemCardComponent,
+    PetRecommendationsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

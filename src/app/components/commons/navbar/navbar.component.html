@@ -4,23 +4,14 @@
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="hidden sm:block">
             <div class="flex space-x-4">
-              <a href="#" class="secondary-color text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">{{items.home}}</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.pets}}</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.toysAccessories}}</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.bookAppointment}}</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.contactUs}}</a>
+              <a href="#" [routerLink]="['/home']" routerLinkActive="active" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">{{items.home}}</a>
+              <a href="#" [routerLink]="['/pets']" routerLinkActive="active" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.pets}}</a>
+              <a href="#" [routerLink]="['/toys-accessories']" routerLinkActive="active" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.toysAccessories}}</a>
+              <a href="#" [routerLink]="['/book-appointment']" routerLinkActive="active" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.bookAppointment}}</a>
+              <a href="#" [routerLink]="['/contact-us']" routerLinkActive="active" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{items.contactUs}}</a>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="sm:hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <a href="#" class="secondary-color text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">{{items.home}}</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{items.pets}}</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{items.toysAccessories}}</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{items.bookAppointment}}</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{items.contactUs}}</a>
       </div>
     </div>
   </nav>
