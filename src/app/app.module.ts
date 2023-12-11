@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PetRecommendationsComponent } from './components/commons/pet-recommendations/pet-recommendations.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { PetService } from './services/Pet.service';
 
 @NgModule({
   declarations: [
@@ -44,9 +47,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    PetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -47,3 +47,11 @@ a:hover {
 .text-500 {
     font-weight: 500;
 }
+
+a {
+    cursor: pointer;
+}
+
+.h-c-90 {
+    height: 90%;
+}

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { PetDetailsComponent } from '../../pet-details/pet-details.component';
+import { IPet } from 'src/app/models/IPet';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-card',
@@ -8,9 +10,22 @@ import { PetDetailsComponent } from '../../pet-details/pet-details.component';
   styleUrls: ['./pet-card.component.css']
 })
 export class PetCardComponent {
-  constructor(public dialog: MatDialog) {}
+  @Input() data:IPet;
 
-  openPetDetailsDialog() {
-    this.dialog.open(PetDetailsComponent);
+  constructor(
+    public router: Router,
+    public dialog: MatDialog
+  ) {}
+
+  openPetDetailsDialog(petId: number) {
+    this.dialog.open(PetDetailsComponent, {
+      data: {
+        petId
+      }
+    });
+  }
+
+  onBookAppointment(petId: number) {
+    this.router.navigateByUrl("/book-appointment?petId=" + petId);
   }
 }

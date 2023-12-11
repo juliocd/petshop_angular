@@ -1,29 +1,31 @@
 <div class="flex flex-row h-full">
     <div class="basis-1/2 pt-4 px-4 flex flex-col">
-        <div>
-            <img src="../../../assets/images/home_image.jpeg" class="w-full mb-2" />
+        <div class="h-c-90">
+            <img src="../../../assets/images/pets/{{pet.image}}" class="w-full mb-2" />
         </div>
         <div class="grid grid-cols-3">
-            <label><span class="text-500">Category: </span>Dog</label>
-            <label><span class="text-500">Height: </span>12 inches</label>
-            <label><span class="text-500">Color: </span>White</label>
-            <label><span class="text-500">Breed: </span>Chiuaua</label>
-            <label><span class="text-500">Weight: </span>12 grams</label>
-            <label><span class="text-500">Life Expectancy: </span>4 years</label>
+            <label><span class="text-500">Category: </span>{{getPetCategory(pet.category)}}</label>
+            <label><span class="text-500">Height: </span>{{pet.height}} inches</label>
+            <label><span class="text-500">Color: </span>{{pet.color}}</label>
+            <label><span class="text-500">Breed: </span>{{pet.breed}}</label>
+            <label><span class="text-500">Weight: </span>{{pet.weight}} grams</label>
+            <label><span class="text-500">Life Expectancy: </span>{{pet.lifeExpectancy}} years</label>
           </div>
         
     </div>
     <div class="basis-1/2 pt-4 px-4 flex flex-col">
-        <h2>Chihuahua</h2>
-        <p>Generally considered dogkind's finest all-purpose worker, the German Shepherd Dog is a large, agile, muscular dog of noble character and high intelligence. Loyal, confident, courageous, and steady, the German Shepherd is truly a dog lover's delight. German Shepherd Dogs can stand as high as 26 inches at the shoulder and, when viewed in outline, presents a picture of smooth, graceful curves rather than angles. The natural gait is a free-and-easy trot, but they can turn it up a notch or two and reach great speeds. There are many reasons why German Shepherds stand in the front rank of canine royalty, but experts say their defining attribute is character: loyalty, courage, confidence, the ability to learn commands for many tasks, and the willingness to put their life on the line in defense of loved ones. German Shepherds will be gentle family pets and steadfast guardians, but, the breed standard says, there's a 'certain aloofness that does not lend itself to immediate and indiscriminate friendships.'</p>
+        <div class="h-c-90">
+            <h2>{{pet.breed}}</h2>
+            <p>{{pet.description}}</p>
+        </div>
         <div class="flex flex-row-reverse py-2">
             <button (click)="onCloseDialog()" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-2 px-4 border border-blue-950 hover:border-transparent rounded">
                 Close
             </button>
-            <button (click)="onBookAppointment()" class="bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded mx-3">
+            <button (click)="onBookAppointment(pet.id)" class="bg-blue-950 hover:bg-blue-900 text-white py-2 px-4 rounded mx-3">
               Book An Appointment
             </button>
-            <h1 class="pt-1">$200</h1>
+            <h1 class="pt-1">${{pet.price}}</h1>
         </div>
     </div>
   </div>

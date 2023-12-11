@@ -4,24 +4,36 @@
             <h2 class="secondary-color">Popular Pets</h2>
             <ul class="list-none list-inside">
                 <li class="pl-5">
-                    <h3><a href="#" class="underline hover:underline">Dogs</a></h3>
+                    <h3>Dogs</h3>
                     <ul class="list-disc list-inside">
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Chihuahua</a></li>
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Golden Doodle</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(1)" class="underline hover:underline">Airedale Terrier</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(3)" class="underline hover:underline">Labrador Retriever</a></li>
                     </ul>
                 </li>
                 <li class="pl-5">
-                    <h3><a href="#" class="underline hover:underline">Cats</a></h3>
+                    <h3>Cats</h3>
                     <ul class="list-disc list-inside">
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Rag Doll</a></li>
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Abyssinian</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(4)" class="underline hover:underline">American Bobtail</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(6)" class="underline hover:underline">Bengal</a></li>
                     </ul>
                 </li>
                 <li class="pl-5">
-                    <h3><a href="#" class="underline hover:underline">Birds</a></h3>
+                    <h3>Birds</h3>
                     <ul class="list-disc list-inside">
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Lovebird</a></li>
-                        <li class="pl-5"><a href="#" class="underline hover:underline">Cockatiel</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(7)" class="underline hover:underline">Lovebird</a></li>
+                        <li class="pl-5"><a (click)="showPetDetails(8)" class="underline hover:underline">Cockatiel</a></li>
+                    </ul>
+                </li>
+                <li class="pl-5">
+                    <h3>Reptile</h3>
+                    <ul class="list-disc list-inside">
+                        <li class="pl-5"><a (click)="showPetDetails(10)" class="underline hover:underline">Leopard Gecko</a></li>
+                    </ul>
+                </li>
+                <li class="pl-5">
+                    <h3>Fishes</h3>
+                    <ul class="list-disc list-inside">
+                        <li class="pl-5"><a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a></li>
                     </ul>
                 </li>
             </ul>
