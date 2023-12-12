@@ -24,6 +24,8 @@ import { PetRecommendationsComponent } from './components/commons/pet-recommenda
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { PetService } from './services/Pet.service';
+import { ErrorAlertComponent } from './components/commons/error-alert/error-alert.component';
+import { SuccessAlertComponent } from './components/commons/success-alert/success-alert.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { PetService } from './services/Pet.service';
     NavbarComponent,
     PetCardComponent,
     ItemCardComponent,
-    PetRecommendationsComponent
+    PetRecommendationsComponent,
+    ErrorAlertComponent,
+    SuccessAlertComponent
   ],
   imports: [
     BrowserModule,

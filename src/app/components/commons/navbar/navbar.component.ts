@@ -11,6 +11,6 @@ export class NavbarComponent {
     pets: 'Pets',
     toysAccessories: 'Toys and Accessories',
     bookAppointment: 'Book an Appointment',
-    contactUs: 'Contaact Us'
+    contactUs: 'Contact Us'
   }
 }

@@ -1,5 +1,10 @@
 import { Moment } from "moment";
 
+export function isValidEmail(email: string) {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return email.match(mailformat);
+}
+
 export function momentToDate (date: Moment) {
     return new Date(date.year(), date.month(), date.date())
 }

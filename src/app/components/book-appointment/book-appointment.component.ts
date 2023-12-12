@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { getPetCategoryName, getStates, momentToDate } from 'src/app/helpers/utils';
 import { IAppointment } from 'src/app/models/IAppointment';
 import { IPet } from 'src/app/models/IPet';
+import { AppointmentService } from 'src/app/services/AppointmentService';
 import { PetService } from 'src/app/services/Pet.service';
 
 @Component({
@@ -14,7 +15,8 @@ import { PetService } from 'src/app/services/Pet.service';
 })
 export class BookAppointmentComponent {
   startDate = moment().day() == 0 ? momentToDate(moment().add(1, 'day')) : momentToDate(moment());
-  saveUnsuccessful: boolean = true;
+  saveUnsuccessful: boolean = false;
+  saveComplete: boolean = false;
   firstName: string;
   lastName: string;
   phoneNumber: number;
@@ -32,15 +34,24 @@ export class BookAppointmentComponent {
     name: string,
     id: string
   }[] = [];
+errorMessage: string;
 
   constructor(
+    public route: ActivatedRoute,
     public router: Router,
-    public petService: PetService
+    public petService: PetService,
+    public appointmentService: AppointmentService
   ) {}
 
   ngOnInit() {
     this.populateStatesComboblox();
     this.populatePetsComboBox();
+
+    this.route.queryParamMap.subscribe({
+      next: (params) => {
+        this.petId = parseInt(params.get("petId") || '');
+      }
+    });
   }
 
   dateFilter = (d: Date | null): boolean => {
@@ -127,7 +138,28 @@ export class BookAppointmentComponent {
       petId: this.petId
     }
 
-    console.log(appointment)
+    this.appointmentService.saveAppointment(appointment).subscribe(data => {
+
+      if (data.error) {
+        this.saveUnsuccessful = true;
+        this.errorMessage = data.error;
+        console.error("Error saving appointment", data.error);
+        return;
+      }
+
+      this.saveUnsuccessful = false;
+      this.saveComplete = true;
+
+      setTimeout(() => {
+        this.saveComplete = false;
+      }, 2000)
+
+      ngForm.reset();
+    }, (error) => {
+      this.saveUnsuccessful = true;
+      this.errorMessage = 'Booking appointment failed. Try larer.';
+      console.error("Error saving appointment", error);
+    })
   }
 
   populateStatesComboblox() {

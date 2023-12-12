@@ -1,7 +1,7 @@
 <div class="text-center p-4 grid">
     <h1 class="secondary-color">Contact Us</h1>
-    <label><span class="text-bold">Email: </span>contact@amazingpets.com</label>
-    <label><span class="text-bold">Phone: </span>(612) 122-4553</label>
+    <label><span class="text-bold">Email: </span><a class="underline" href= "mailto: contact@amazingpets.com">contact@amazingpets.com</a></label>
+    <label><span class="text-bold">Phone: </span><a class="underline" href="tel:+16121224553">(612) 122-4553</a></label>
     <label><span class="text-bold">Address: </span></label>
     <label>2345 Ashland Ave. Minneaplolis, MN - 55123</label>
 </div>
@@ -9,14 +9,20 @@
 <div class="text-center p-4 grid">
     <h1 class="secondary-color">Join our newsletter</h1>
     <div class="center">
-        <form>
+        <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
             <div class="m-2">
-                <label class="m-2">Name</label><input class="border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="customerName" />
+                <label class="m-2">Name</label><input class="border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="name" [(ngModel)]="name" />
             </div>
             <div class="m-2">
-                <label class="m-2">Email</label><input class="border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="customerName" />
+                <label class="m-2">Email</label><input class="border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="email" [(ngModel)]="email" />
             </div>
-            <button class="bg-blue-950 hover:bg-blue-900 text-white py-1 px-4 my-1 rounded mx-3x">Submit</button>
+            <div class="flex justify-center" *ngIf="this.saveComplete">
+                <app-success-alert [message]="'Subscriber stored successfully.'"></app-success-alert>
+            </div>
+            <div class="flex justify-center" *ngIf="this.saveUnsuccessful">
+                <app-error-alert [message]="errorMessage"></app-error-alert>
+            </div>
+            <button [disabled]="saveUnsuccessful" type="submit" class="bg-blue-950 hover:bg-blue-900 text-white py-1 px-4 my-1 rounded mx-3x {{this.saveUnsuccessful ? 'opacity-50 cursor-not-allowed' : ''}}">Submit</button>
         </form>
     </div>
 </div>
