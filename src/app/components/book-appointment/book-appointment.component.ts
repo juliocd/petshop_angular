@@ -22,7 +22,7 @@ export class BookAppointmentComponent {
   address: string;
   state: string;
   zipCode: number;
-  appointmentDate: string;
+  appointmentDate: string | Date;
   appointmentTime: string;
   petId: number;
   states: {
@@ -230,7 +230,7 @@ export class BookAppointmentComponent {
         this.address = data.address,
         this.state = data.state,
         this.zipCode = data.zipCode,
-        this.appointmentDate = data.appointmentDate,
+        this.appointmentDate = new Date(data.appointmentDate),
         this.appointmentTime = data.appointmentTime,
         this.petId = data.petId
       });

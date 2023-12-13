@@ -23,7 +23,10 @@
                 <td class="text-center">{{appointment.appointmentDate}}</td>
                 <td class="text-center">{{appointment.appointmentTime}}</td>
                 <td class="text-center">{{appointment.petName}}</td>
-                <td class="text-center underline"><button (click)="editAppointment(appointment.id)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1/2 px-2 border border-blue-950 hover:border-transparent rounded">Edit</button></td>
+                <td class="text-center underline">
+                    <button (click)="editAppointment(appointment.id)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1/2 px-2 border border-blue-950 hover:border-transparent rounded">Edit</button>
+                    <button (click)="deleteAppointment(appointment.id)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1/2 px-2 border border-blue-950 hover:border-transparent rounded mx-2">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>

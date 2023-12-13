@@ -13,6 +13,7 @@ export class AppointmentsComponent {
   phoneNumber:number;
   appointments:IAppointment[] = [];
   appointmentId: number;
+  inProgress: boolean = false;
 
   constructor(
     public appointmentService: AppointmentService,
@@ -21,6 +22,8 @@ export class AppointmentsComponent {
   ) {}
 
   searchAppointments() {
+    this.inProgress = true;
+    
     if(!this.phoneNumber) {
       alert("Enter a phone number");
       return;
@@ -39,5 +42,15 @@ export class AppointmentsComponent {
 
   editAppointment(appointmentId: number) {
     this.router.navigateByUrl("/book-appointment?id=" + appointmentId);
+  }
+
+  deleteAppointment(appointmentId: number) {
+    const result = confirm("Are you sure to delete this appointment?");
+    if(result) {
+      this.appointmentService.deleteAppointment(appointmentId)
+      .subscribe(data => {
+        this.searchAppointments();
+      });
+    }
   }
 }
