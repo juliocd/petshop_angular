@@ -1,0 +1,30 @@
+<div class="p-4">
+    <div class="flex flex-row mb-2">
+        <label class="mr-3 my-1">Phone Number</label>
+        <input class="border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1 mr-3" type="number" name="phoneNumber" [(ngModel)]="phoneNumber"/>
+        <button (click)="searchAppointments()" class="bg-blue-950 hover:bg-blue-900 text-white px-2 rounded">Search</button>
+    </div>
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Pet</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="appointments.length === 0">
+                <td colspan="5" class="text-center">No records found.</td>
+            </tr>
+            <tr *ngFor="let appointment of appointments">
+                <td class="text-center">{{appointment.firstName}} {{appointment.lastName}}</td>
+                <td class="text-center">{{appointment.appointmentDate}}</td>
+                <td class="text-center">{{appointment.appointmentTime}}</td>
+                <td class="text-center">{{appointment.petName}}</td>
+                <td class="text-center underline"><button (click)="editAppointment(appointment.id)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1/2 px-2 border border-blue-950 hover:border-transparent rounded">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

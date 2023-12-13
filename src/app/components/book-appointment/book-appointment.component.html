@@ -1,7 +1,7 @@
-<div class="pt-4">
-    <h1 class="secondary-color text-center">Book an Appointment</h1>
-    <div class="p-4 flex justify-center">
-        <form  #f="ngForm" (ngSubmit)="onFormSubmit(f)">
+<div class="{{appointmentId ? '' : 'pt-4'}}">
+    <h1 class="secondary-color text-center">{{appointmentId ? 'Edit' : 'Book'}} Appointment</h1>
+    <div class="p-4 flex justify-center overflow-y-auto main-container">
+        <form class="main-form"  #f="ngForm" (ngSubmit)="onFormSubmit(f)">
             <table>
                 <tr>
                     <td>First Name</td>
@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <td>Phone Number</td>
-                    <td><input class="w-full border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="phoneNumber" [(ngModel)]="phoneNumber"/></td>
+                    <td><input class="w-full border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="number" name="phoneNumber" [(ngModel)]="phoneNumber"/></td>
                 </tr>
                 <tr>
                     <td>Address</td>
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>Zip Code</td>
-                    <td><input class="w-full border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="text" name="zipCode" [(ngModel)]="zipCode"/></td>
+                    <td><input class="w-full border rounded-md focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 px-1" type="number" name="zipCode" [(ngModel)]="zipCode"/></td>
                 </tr>
                 <tr>
                     <td>Appointment Date</td>
@@ -55,6 +55,9 @@
                         </select>
                     </td>
                 </tr>
+                <tr>
+                    <td class="italic" colspan="2">The appointment will take around 1 hour. Please, remember to bring your ID card.</td>
+                </tr>
             </table>
             <div *ngIf="this.saveComplete">
                 <app-success-alert [message]="'Appointment stored successfully.'"></app-success-alert>
@@ -63,8 +66,9 @@
                 <app-error-alert [message]="errorMessage"></app-error-alert>
             </div>
             <div class="my-2 flex justify-center">
-                <button [disabled]="saveUnsuccessful" type="submit" class="bg-blue-950 hover:bg-blue-900 text-white py-1 px-4 my-1 rounded mx-3x mr-4 {{this.saveUnsuccessful ? 'opacity-50 cursor-not-allowed' : ''}}">Submit</button>
-                <button (click)="goHome()" class="bg-blue-950 hover:bg-blue-900 text-white py-1 px-4 my-1 rounded mx-3x">Cancel</button>
+                <button (click)="viewAppointmes()" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1 px-4 my-1 mr-6 border border-blue-950 hover:border-transparent rounded">View my appointments</button>
+                <button (click)="goBack()" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-1 px-4 my-1 ml-3 mr-1 border border-blue-950 hover:border-transparent rounded">Cancel</button>
+                <button type="submit" class="bg-blue-950 hover:bg-blue-900 text-white py-1 px-4 my-1 mx-2 rounded mx-3x mr-4">Submit</button>
             </div>
         </form>
     </div>

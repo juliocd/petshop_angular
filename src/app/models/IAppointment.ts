@@ -1,4 +1,5 @@
 export interface IAppointment {
+    id: number;
     firstName: string;
     lastName: string;
     phoneNumber: number;
@@ -8,4 +9,5 @@ export interface IAppointment {
     appointmentDate: string;
     appointmentTime: string;
     petId: number;
+    petName?: string;
 }
