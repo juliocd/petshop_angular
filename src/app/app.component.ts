@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(public cartService: CartService) {}
 
-  ngOnInit() {
+  onCartUpdate() {
     this.cartItems = this.cartService.getTotalItems();
     this.cartTotal = this.cartService.getTotalPrice();
   }

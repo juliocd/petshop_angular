@@ -27,6 +27,10 @@ import { PetService } from './services/Pet.service';
 import { ErrorAlertComponent } from './components/commons/error-alert/error-alert.component';
 import { SuccessAlertComponent } from './components/commons/success-alert/success-alert.component';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
+import { CartService } from './services/CartService';
+import { AppointmentService } from './services/AppointmentService';
+import { MerchandiseService } from './services/MerchandiseService';
+import { SubscriberService } from './services/SubscriberService';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { AppointmentsComponent } from './components/appointments/appointments.co
     FormsModule
   ],
   providers: [
-    PetService
+    PetService,
+    CartService,
+    AppointmentService,
+    MerchandiseService,
+    SubscriberService
   ],
   bootstrap: [AppComponent]
 })

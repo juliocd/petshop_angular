@@ -1,10 +1,17 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable, Output } from "@angular/core";
 import { IMerchandiseItem } from "../models/IMerchandiseItem";
 
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
+  @Output() cartChange: EventEmitter<{
+    count: number;
+    total: number;
+  }> = new EventEmitter<{
+    count: number;
+    total: number;
+  }>();
   private cartItems: {
     [key: string]: number
   } = {};
@@ -16,12 +23,22 @@ export class CartService {
       this.cartItems[item.id] = count - 1;
       this.totalCart -= item.price;
     }
+
+    this.cartChange.emit({
+      count: this.getTotalItems(),
+      total: this.getTotalPrice()
+    });
   }
 
   addItem(item: IMerchandiseItem) {
     const count = this.cartItems[item.id];
     this.cartItems[item.id] = (count || 0) + 1;
     this.totalCart += item.price;
+
+    this.cartChange.emit({
+      count: this.getTotalItems(),
+      total: this.getTotalPrice()
+    });
   }
 
   getCountByItemId(itemId: number) {
