@@ -1,15 +1,15 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <img class="w-full" src="../../../../assets/images/card-top.jpg" alt="Sunset in the mountains">
+    <img class="w-full" src="../../../../assets/images/merchandise/{{data.image}}" alt="Sunset in the mountains">
     <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2"><a href="#" class="hover:underline">Item name</a></div>
+      <div class="font-bold text-xl mb-2">{{data.name}}</div>
       <p class="text-gray-700 text-base">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        {{data.description}}
       </p>
     </div>
-    <h2 class="text-center">$10</h2>
+    <h2 class="text-center">${{data.price}}</h2>
     <div class="flex flex-row px-6 pb-2 justify-center">
-      <button class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-2 px-4 border border-blue-950 hover:border-transparent rounded" >+</button>
-      <label class=" px-2 pt-2 text-xl">0</label>
-      <button class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-2 px-4 border border-blue-950 hover:border-transparent rounded">-</button>
+      <button (click)="removeItem(data)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-2 px-4 border border-blue-950 hover:border-transparent rounded" >-</button>
+      <label class=" px-2 pt-2 text-xl">{{cartService.getCountByItemId(data.id) || 0 }}</label>
+      <button (click)="addItem(data)" class="bg-transparent hover:bg-blue-950 text-blue-950 hover:text-white py-2 px-4 border border-blue-950 hover:border-transparent rounded">+</button>
     </div>
   </div>

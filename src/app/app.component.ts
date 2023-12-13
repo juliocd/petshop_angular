@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './services/CartService';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'petshop_angular';
+  cartItems:number = 0;
+  cartTotal:number = 0;
+
+  constructor(public cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartItems = this.cartService.getTotalItems();
+    this.cartTotal = this.cartService.getTotalPrice();
+  }
 }

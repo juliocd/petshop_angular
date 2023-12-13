@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IMerchandiseItem } from 'src/app/models/IMerchandiseItem';
+import { CartService } from 'src/app/services/CartService';
 
 @Component({
   selector: 'app-item-card',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./item-card.component.css']
 })
 export class ItemCardComponent {
+  @Input() data:IMerchandiseItem;
+  
+  constructor(public cartService: CartService) {}
 
+  removeItem(item: IMerchandiseItem) {
+    this.cartService.removeItem(item);
+  }
+
+  addItem(item: IMerchandiseItem) {
+    this.cartService.addItem(item);
+  }
 }
