@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { PetCategory } from "../enums/PetCategory";
 import { MerchandiseCategory } from "../enums/MerchandiseCategory";
+import getHost from "../helpers/settings";
 
 @Injectable({
     providedIn: 'root'
 })
 export class MerchandiseService {
-    host = "http://localhost:3005";
+    host = getHost();
     constructor(public httpClient: HttpClient){}
 
     getMerchandise(filter?: {

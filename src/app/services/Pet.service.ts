@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { PetCategory } from "../enums/PetCategory";
+import getHost from "../helpers/settings";
 
 @Injectable({
     providedIn: 'root'
 })
 export class PetService {
-    host = "http://localhost:3005";
+    host = getHost();
 
     constructor(public httpClient: HttpClient){}
 
