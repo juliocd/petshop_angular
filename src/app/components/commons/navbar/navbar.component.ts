@@ -13,13 +13,9 @@ export class NavbarComponent {
     bookAppointment: 'Book an Appointment',
     contactUs: 'Contact Us'
   }
-  showModal: string = 'invisible';
+  showModal: boolean = false;
 
-  showModalMenu() {
-    this.showModal = 'visible';
-  }
-
-  hideModalMenu() {
-    this.showModal = 'invisible';
+  toggleModalMenu() {
+    this.showModal = !this.showModal;
   }
 }

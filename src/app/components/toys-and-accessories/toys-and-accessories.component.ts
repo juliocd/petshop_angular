@@ -22,6 +22,7 @@ export class ToysAndAccessoriesComponent {
   filterByToy = MerchandiseCategory.Toy;
   filterByAccessory = MerchandiseCategory.Accessories;
   textSearch: string = '';
+  showFilter:boolean = false;
 
   constructor(
     public merchandiseService: MerchandiseService,
@@ -40,6 +41,8 @@ export class ToysAndAccessoriesComponent {
   }
 
   filterBy(petCategory?: PetCategory, merchandiseCategory?: MerchandiseCategory) {
+    this.showFilter = false;
+    
     if (!petCategory && !merchandiseCategory) {
       this.currentPetFilter = null;
       this.currentMerchandiseFilter = null;
@@ -74,5 +77,9 @@ export class ToysAndAccessoriesComponent {
     }).subscribe(data => {
       this.merchandiseItemList = data;
     });
+  }
+
+  toggleFilter() {
+    this.showFilter = !this.showFilter;
   }
 }

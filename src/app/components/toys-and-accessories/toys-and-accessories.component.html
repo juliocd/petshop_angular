@@ -2,19 +2,19 @@
     <div class="flex-none w-0 invisible sm:w-36 sm:visible sm:p-2">
         <h2 class="secondary-color">Dogs</h2>
         <ul class="list-disc list-inside">
-            <li class="pl-5"><a (click)="filterBy(filterByDog, filterByToy)" class="underline hover:underline">Toys</a></li>
-            <li class="pl-5"><a (click)="filterBy(filterByDog, filterByAccessory)" class="underline hover:underline">Accessories</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByDog, filterByToy)" class="underline hover:underline {{currentMerchandiseFilter == filterByToy && currentPetFilter == filterByDog ? 'active' : ''}}">Toys</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByDog, filterByAccessory)" class="underline hover:underline {{currentMerchandiseFilter == filterByAccessory && currentPetFilter == filterByDog ? 'active' : ''}}">Accessories</a></li>
         </ul>
         <h2 class="secondary-color">Cats</h2>
         <ul class="list-disc list-inside">
-            <li class="pl-5"><a (click)="filterBy(filterByCat, filterByToy)" class="underline hover:underline">Toys</a></li>
-            <li class="pl-5"><a (click)="filterBy(filterByCat, filterByAccessory)" class="underline hover:underline">Accessories</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByCat, filterByToy)" class="underline hover:underline {{currentMerchandiseFilter == filterByToy && currentPetFilter == filterByCat ? 'active' : ''}}">Toys</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByCat, filterByAccessory)" class="underline hover:underline {{currentMerchandiseFilter == filterByAccessory && currentPetFilter == filterByCat ? 'active' : ''}}">Accessories</a></li>
         </ul>
         <h2 class="secondary-color">Others</h2>
         <ul class="list-disc list-inside">
-            <li class="pl-5"><a (click)="filterBy(filterByBird)" class="underline hover:underline">Birds</a></li>
-            <li class="pl-5"><a (click)="filterBy(filterByReptile)" class="underline hover:underline">Reptiles</a></li>
-            <li class="pl-5"><a (click)="filterBy(filterByFish)" class="underline hover:underline">Fishes</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByBird)" class="underline hover:underline {{currentPetFilter == filterByBird ? 'active' : ''}}">Birds</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByReptile)" class="underline hover:underline {{currentPetFilter == filterByReptile ? 'active' : ''}}">Reptiles</a></li>
+            <li class="pl-5"><a (click)="filterBy(filterByFish)" class="underline hover:underline {{currentPetFilter == filterByFish ? 'active' : ''}}">Fishes</a></li>
         </ul>
         <br>
         <a (click)="filterBy()" class="underline hover:underline">View all items</a>
@@ -24,8 +24,8 @@
             <h2 class="secondary-color">Toys And Accessories</h2>
             <div class="w-full mt-2">
                 <div class="h-full">
-                    <div class="flex flex-row">
-                        <div class="flex-1 sm:flex-1/2">
+                    <div class="flex">
+                        <div class="basis-2/3 sm:basis-1/2">
                             <label class="relative block">
                                 <span class="sr-only">Search</span>
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -36,8 +36,57 @@
                                 <input (keyup)="searchByText()" [(ngModel)]="textSearch" class="placeholder:italic h-42 placeholder:text-blue-950 block bg-white w-full border border-blue-950 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search" type="text" name="search"/>
                             </label>
                         </div>
-                        <div class="flex-1/3 mx-2 sm:mx-0 sm:w-0 sm:invisible">
-                            <button>Filter</button>
+                        <div class="basis-1/3 mx-3 sm:mx-0 sm:w-0 sm:invisible place-content-center">
+                            <div class="relative">
+                                <button 
+                                    type="button" 
+                                    class="inline-flex cursor-pointer items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" 
+                                    aria-expanded="false"
+                                    (click)="toggleFilter()"
+                                >
+                                  <span class="{{currentPetFilter ? 'active' : ''}}">Filter</span>   
+                                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                  </svg>                         
+                                </button>
+                                <div *ngIf="showFilter" class="absolute z-10 mt-2 filter-right-x">
+                                  <div class="w-40 flex-auto overflow-hidden rounded-3xl bg-white w-auto text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                    <div class="p-4">
+                                        <button type="button" (click)="toggleFilter()" class="absolute z-10 right-0.5 top-0.5 p-1 inline-flex items-center justify-center rounded-md text-gray-400">
+                                            <span class="absolute -inset-0.5"></span>
+                                            <span class="sr-only">Close menu</span>
+                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByDog, filterByToy)" class="hover:underline {{currentMerchandiseFilter == filterByToy && currentPetFilter == filterByDog ? 'active' : ''}}">Dog Toys</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByDog, filterByAccessory)" class="hover:underline {{currentMerchandiseFilter == filterByAccessory && currentPetFilter == filterByDog ? 'active' : ''}}">Accessories</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByCat, filterByToy)" class="hover:underline {{currentMerchandiseFilter == filterByToy && currentPetFilter == filterByCat ? 'active' : ''}}">Cat Toys</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByCat, filterByAccessory)" class="hover:underline {{currentMerchandiseFilter == filterByAccessory && currentPetFilter == filterByCat ? 'active' : ''}}">Cat Accessories</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByBird)" class="hover:underline {{currentPetFilter == filterByBird ? 'active' : ''}}">Birds</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByReptile)" class="hover:underline {{currentPetFilter == filterByReptile ? 'active' : ''}}">Reptiles</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy(filterByFish)" class="hover:underline {{currentPetFilter == filterByFish ? 'active' : ''}}">Fishes</a>
+                                      </div>
+                                      <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <a (click)="filterBy()" class="underline hover:underline">View all items</a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </div>
                     </div>
                 </div>

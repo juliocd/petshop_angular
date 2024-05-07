@@ -2,3 +2,11 @@
     height: calc(100% - 110px);
     overflow-y: scroll;
 }
+
+.active {
+    color: #e17835;
+}
+
+.filter-right-x {
+    right: 3.5rem;
+}

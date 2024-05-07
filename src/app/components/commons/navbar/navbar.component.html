@@ -2,7 +2,7 @@
   <div class="mx-auto ">
     <div class="relative flex h-14 items-center justify-between">
       <div class="flex flex-1 items-center md:items-stretch md:justify-start">
-        <button type="button" class="mx-2 relative rounded-md p-2 text-gray-400 md:hidden" (click)="showModalMenu()">
+        <button type="button" class="mx-2 relative rounded-md p-2 text-gray-400 md:hidden" (click)="toggleModalMenu()">
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Open menu</span>
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<div class="bg-white {{showModal}}">
+<div *ngIf="showModal" class="bg-white">
   <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-black bg-opacity-25"></div>
     <div class="fixed inset-0 z-40 flex">
@@ -31,9 +31,9 @@
         <div class="space-y-6 border-t border-gray-200 px-4 py-6">
           <div class="flow-root">
             <div class="flex">
-              <a href="#" (click)="hideModalMenu()" [routerLink]="['/home']" routerLinkActive="active" class="-m-2 basis-3/4 block p-2 font-medium text-gray-900" aria-current="page">{{items.home}}</a>
+              <a href="#" (click)="toggleModalMenu()" [routerLink]="['/home']" routerLinkActive="active" class="-m-2 basis-3/4 block p-2 font-medium text-gray-900" aria-current="page">{{items.home}}</a>
               <div class="flex basis-1/4 justify-end">
-                <button type="button" (click)="hideModalMenu()" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+                <button type="button" (click)="toggleModalMenu()" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
                   <span class="absolute -inset-0.5"></span>
                   <span class="sr-only">Close menu</span>
                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -44,16 +44,16 @@
             </div>
           </div>
           <div class="flow-root">
-            <a href="#" (click)="hideModalMenu()" [routerLink]="['/pets']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.pets}}</a>
+            <a href="#" (click)="toggleModalMenu()" [routerLink]="['/pets']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.pets}}</a>
           </div>
           <div class="flow-root">
-            <a href="#" (click)="hideModalMenu()" [routerLink]="['/book-appointment']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.bookAppointment}}</a>
+            <a href="#" (click)="toggleModalMenu()" [routerLink]="['/book-appointment']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.bookAppointment}}</a>
           </div>
           <div class="flow-root">
-            <a href="#" (click)="hideModalMenu()" [routerLink]="['/toys-accessories']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.toysAccessories}}</a>
+            <a href="#" (click)="toggleModalMenu()" [routerLink]="['/toys-accessories']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.toysAccessories}}</a>
           </div>
           <div class="flow-root">
-            <a href="#" (click)="hideModalMenu()" [routerLink]="['/contact-us']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.contactUs}}</a>
+            <a href="#" (click)="toggleModalMenu()" [routerLink]="['/contact-us']" routerLinkActive="active" class="-m-2 block p-2 font-medium text-gray-900">{{items.contactUs}}</a>
           </div>
         </div>
       </div>
