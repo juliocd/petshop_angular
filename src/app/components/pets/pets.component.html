@@ -3,8 +3,8 @@
     <h2 class="secondary-color">Pets For Shopping</h2>
     <div class="w-full mt-2">
         <div class="h-full">
-            <div class="flex ...">
-                <div class="flex-none w-1/3">
+            <div class="md:flex">
+                <div class="flex-none md:w-1/3">
                     <label class="relative block">
                         <span class="sr-only">Search</span>
                         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -15,7 +15,7 @@
                         <input (keyup)="searchByText()" [(ngModel)]="textSearch" class="placeholder:italic h-42 placeholder:text-blue-950 block bg-white w-full border border-blue-950 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search" type="text" name="search"/>
                     </label>
                 </div>
-                <div class="ml-4 pt-2">
+                <div class="md:ml-4 pt-2">
                     <div class="flex flex-row">
                         <a (click)="filterBy(filterByDog)" class="underline hover:underline {{currentFilter == filterByDog ? 'active' : ''}}">Dogs</a>
                         <a (click)="filterBy(filterByCat)" class="underline hover:underline px-2 {{currentFilter == filterByCat ? 'active' : ''}}">Cats</a>
@@ -29,10 +29,10 @@
         </div>
     </div>
     <div class="mt-2 pb-2 main-container">
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols gap sm:grid-cols-2 sm:gap-2 md:grid-cols-3 md:gap-3 xl:grid-cols-4 xl:gap-4">
             <div *ngFor="let pet of pets">
                 <app-pet-card [data]="pet"></app-pet-card>
             </div>
         </div>
     </div>
-  </div>
+</div>
