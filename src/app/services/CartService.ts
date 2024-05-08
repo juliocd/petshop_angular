@@ -1,33 +1,32 @@
-import { EventEmitter, Injectable, Output } from "@angular/core";
+import { EventEmitter, Injectable, Input, Output } from "@angular/core";
 import { IMerchandiseItem } from "../models/IMerchandiseItem";
 
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
-  @Output() cartChange: EventEmitter<{
-    count: number;
-    total: number;
-  }> = new EventEmitter<{
-    count: number;
-    total: number;
-  }>();
   private cartItems: {
     [key: string]: number
   } = {};
   private totalCart:number = 0;
+  public cartSummary = {
+    count: 0,
+    total: 0,
+  };
 
   removeItem(item: IMerchandiseItem) {
     const count = this.cartItems[item.id] || 0;
-    if (count > 0) {
-      this.cartItems[item.id] = count - 1;
-      this.totalCart -= item.price;
+
+    if(count < 1) {
+      return;
     }
 
-    this.cartChange.emit({
-      count: this.getTotalItems(),
-      total: this.getTotalPrice()
-    });
+    this.cartItems[item.id] = count - 1;
+    this.totalCart -= item.price;
+
+    this.cartSummary.count = this.getTotalItems();
+    this.cartSummary.total = this.getTotalPrice();
+    this.cartSummary.total = this.getTotalPrice();
   }
 
   addItem(item: IMerchandiseItem) {
@@ -35,10 +34,8 @@ export class CartService {
     this.cartItems[item.id] = (count || 0) + 1;
     this.totalCart += item.price;
 
-    this.cartChange.emit({
-      count: this.getTotalItems(),
-      total: this.getTotalPrice()
-    });
+    this.cartSummary.count = this.getTotalItems();
+    this.cartSummary.total = this.getTotalPrice();
   }
 
   getCountByItemId(itemId: number) {

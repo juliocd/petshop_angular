@@ -22,45 +22,45 @@
                 <div class="flex">
                     <div class="basis-1/2">
                         <h3>Dogs</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(1)" class="underline hover:underline">Airedale Terrier</a>
-                            <a (click)="showPetDetails(3)" class="underline hover:underline">Labrador Retriever</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(1)" class="underline hover:underline">Airedale Terrier</a></li>
+                            <li class="pl-5"><a (click)="showPetDetails(3)" class="underline hover:underline">Labrador Retriever</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/2">
                         <h3>Cats</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(4)" class="underline hover:underline">American Bobtail</a>
-                            <a (click)="showPetDetails(6)" class="underline hover:underline">Bengal</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(4)" class="underline hover:underline">American Bobtail</a></li>
+                            <li class="pl-5"><a (click)="showPetDetails(6)" class="underline hover:underline">Bengal</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="flex mt-3">
                     <div class="basis-1/2">
                         <h3>Birds</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(7)" class="underline hover:underline">Lovebird</a>
-                            <a (click)="showPetDetails(8)" class="underline hover:underline">Cockatiel</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(7)" class="underline hover:underline">Lovebird</a></li>
+                            <li class="pl-5"><a (click)="showPetDetails(8)" class="underline hover:underline">Cockatiel</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/2">
                         <h3>Reptile</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(10)" class="underline hover:underline">Leopard Gecko</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(10)" class="underline hover:underline">Leopard Gecko</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="flex mt-3">
                     <div class="basis-1/2">
                         <h3>Fishes</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/2">
                         <h3>Fishes</h3>
-                        <ul class="list-disc list-inside">
-                            <a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a>
+                        <ul class="list-none list-inside">
+                            <li class="pl-5"><a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a></li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 <ul class="list-none list-inside">
                     <li class="pl-5">
                         <h3>Accessories</h3>
-                        <ul class="list-disc list-inside">
+                        <ul class="list-none list-inside">
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Katziela Voyager Backpack'}" class="underline hover:underline">Katziela Voyager Backpack</a></li>
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Cat collar'}" href="#" class="underline hover:underline">Cat collar</a></li>
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Reptile Turtle Aquarium Tank Turtle Vivarium'}" href="#" class="underline hover:underline">Reptile Turtle Aquarium Tank Turtle Vivarium</a></li>
@@ -79,7 +79,7 @@
                     </li>
                     <li class="pl-5">
                         <h3>Toys</h3>
-                        <ul class="list-disc list-inside">
+                        <ul class="list-none list-inside">
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kong Flyer Rubber Disc Large'}" class="underline hover:underline">Kong Flyer Rubber Disc Large</a></li>
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG Connects Magnacat'}" class="underline hover:underline">KONG Connects Magnacat</a></li>
                             <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kingsyard Metal Bird Feeders for Outdoor Hanging'}" class="underline hover:underline">Kingsyard Metal Bird Feeders for Outdoor Hanging</a></li>
@@ -93,8 +93,8 @@
             </div>
         </div>
     </div>
-    <div class="p-4">
-        <div class="flex flex-row justify-center">
+    <div class="p-4 flex flex-row">
+        <div class="flex flex-row w-46 flex-none">
             <div>
                 <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/facebook.png" /></a>
             </div>
@@ -104,6 +104,12 @@
             <div>
                 <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/x.png" /></a>
             </div>
+        </div>
+        <div>
+            <label class="italic">It is a demo website developed by Julio Diaz. Its purpose is to demonstrate 
+                the capabilities of using AngularJS, and NodeJS to build a Full Stack application. 
+                It is deployed on AWS with a microservice architecture. All pictures used were taken from public websites. 
+                <a class="underline text-blue-600" href="https://github.com/juliocd" target="_blank">GitHub</a></label>
         </div>
     </div>
   </div>
