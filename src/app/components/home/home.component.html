@@ -1,99 +1,109 @@
-<div class="flex flex-row h-full">
-    <div class="basis-1/5 pt-4 px-4">
-        <div class="h-90">
-            <h2 class="secondary-color">Popular Pets</h2>
-            <ul class="list-none list-inside">
-                <li class="pl-5">
-                    <h3>Dogs</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a (click)="showPetDetails(1)" class="underline hover:underline">Airedale Terrier</a></li>
-                        <li class="pl-5"><a (click)="showPetDetails(3)" class="underline hover:underline">Labrador Retriever</a></li>
-                    </ul>
-                </li>
-                <li class="pl-5">
-                    <h3>Cats</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a (click)="showPetDetails(4)" class="underline hover:underline">American Bobtail</a></li>
-                        <li class="pl-5"><a (click)="showPetDetails(6)" class="underline hover:underline">Bengal</a></li>
-                    </ul>
-                </li>
-                <li class="pl-5">
-                    <h3>Birds</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a (click)="showPetDetails(7)" class="underline hover:underline">Lovebird</a></li>
-                        <li class="pl-5"><a (click)="showPetDetails(8)" class="underline hover:underline">Cockatiel</a></li>
-                    </ul>
-                </li>
-                <li class="pl-5">
-                    <h3>Reptile</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a (click)="showPetDetails(10)" class="underline hover:underline">Leopard Gecko</a></li>
-                    </ul>
-                </li>
-                <li class="pl-5">
-                    <h3>Fishes</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="h-10">
-            <div class="flex flex-row pt-2 pl-6">
-                <div>
-                    <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/facebook.png" /></a>
-                </div>
-                <div>
-                    <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/instagram.png" /></a>
-                </div>
-                <div>
-                    <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/x.png" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="basis-3/5 pt-4 px-4">
-        <div class="h-3/4">
+<div class="flex flex-col overflow-y-scroll relative h-full">
+    <div class="flex flex-col md:flex-row">
+        <div class="basis-3/5 p-4">
             <img src="../../../assets/images/home_image.jpeg" class="w-full h-full" />
         </div>
-        <div class="h-1/4 pt-2">
+        <div class="basis-2/5 p-4">
             <h2 class="secondary-color">Friend of the week</h2>
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-6 md:flex-col">
                 <div class="shrink-0">
-                  <img class="h-24 w-24 object-cover rounded-full" src="../../../assets/images/friend_image.png" alt="Current profile photo" />
+                    <img class="h-24 w-24 md:h-56 md:w-56 object-cover rounded-full" src="../../../assets/images/friend_image.png" alt="Current profile photo" />
                 </div>
-                <label class="block">
+                <label class="block md:mt-4">
                     Cats depend on people for everything they need—food, fresh water, a clean litter box, veterinary care, and, most important, affection and love. Here are some essentials to keep your feline friend happy and safe.
                 </label>
             </div>
         </div>
     </div>
-    <div class="basis-1/5 pt-4 px-4">
-        <div class="h-3/4">
-            <h2 class="secondary-color">Recommended Products</h2>
-            <ul class="list-none list-inside">
-                <li class="pl-5">
-                    <h3>Accessories</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Katziela Voyager Backpack'}" class="underline hover:underline">Katziela Voyager Backpack</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Cat collar'}" href="#" class="underline hover:underline">Cat collar</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Reptile Turtle Aquarium Tank Turtle Vivarium'}" href="#" class="underline hover:underline">Reptile Turtle Aquarium Tank Turtle Vivarium</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG Ball Cat'}" href="#" class="underline hover:underline">KONG Ball Cat</a></li>
-                    </ul>
-                </li>
-                <li class="pl-5">
-                    <h3>Toys</h3>
-                    <ul class="list-disc list-inside">
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kong Flyer Rubber Disc Large'}" class="underline hover:underline">Kong Flyer Rubber Disc Large</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG Connects Magnacat'}" class="underline hover:underline">KONG Connects Magnacat</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kingsyard Metal Bird Feeders for Outdoor Hanging'}" class="underline hover:underline">Kingsyard Metal Bird Feeders for Outdoor Hanging</a></li>
-                        <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG AirDog Squeakair Ball Dog Toy'}" class="underline hover:underline">KONG AirDog Squeakair Ball Dog Toy</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <div>
+        <div class="flex flex-col lg:flex-row">
+            <div class="lg:basis-1/3 p-4">
+                <h2 class="secondary-color">Popular Pets</h2>
+                <div class="flex">
+                    <div class="basis-1/2">
+                        <h3>Dogs</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(1)" class="underline hover:underline">Airedale Terrier</a>
+                            <a (click)="showPetDetails(3)" class="underline hover:underline">Labrador Retriever</a>
+                        </ul>
+                    </div>
+                    <div class="basis-1/2">
+                        <h3>Cats</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(4)" class="underline hover:underline">American Bobtail</a>
+                            <a (click)="showPetDetails(6)" class="underline hover:underline">Bengal</a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex mt-3">
+                    <div class="basis-1/2">
+                        <h3>Birds</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(7)" class="underline hover:underline">Lovebird</a>
+                            <a (click)="showPetDetails(8)" class="underline hover:underline">Cockatiel</a>
+                        </ul>
+                    </div>
+                    <div class="basis-1/2">
+                        <h3>Reptile</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(10)" class="underline hover:underline">Leopard Gecko</a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex mt-3">
+                    <div class="basis-1/2">
+                        <h3>Fishes</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a>
+                        </ul>
+                    </div>
+                    <div class="basis-1/2">
+                        <h3>Fishes</h3>
+                        <ul class="list-disc list-inside">
+                            <a (click)="showPetDetails(12)" class="underline hover:underline">Fantail Goldfish</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:basis-1/3 p-4">
+                <h2 class="secondary-color">Recommended Products</h2>
+                <ul class="list-none list-inside">
+                    <li class="pl-5">
+                        <h3>Accessories</h3>
+                        <ul class="list-disc list-inside">
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Katziela Voyager Backpack'}" class="underline hover:underline">Katziela Voyager Backpack</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Cat collar'}" href="#" class="underline hover:underline">Cat collar</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Reptile Turtle Aquarium Tank Turtle Vivarium'}" href="#" class="underline hover:underline">Reptile Turtle Aquarium Tank Turtle Vivarium</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG Ball Cat'}" href="#" class="underline hover:underline">KONG Ball Cat</a></li>
+                        </ul>
+                    </li>
+                    <li class="pl-5">
+                        <h3>Toys</h3>
+                        <ul class="list-disc list-inside">
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kong Flyer Rubber Disc Large'}" class="underline hover:underline">Kong Flyer Rubber Disc Large</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG Connects Magnacat'}" class="underline hover:underline">KONG Connects Magnacat</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'Kingsyard Metal Bird Feeders for Outdoor Hanging'}" class="underline hover:underline">Kingsyard Metal Bird Feeders for Outdoor Hanging</a></li>
+                            <li class="pl-5"><a [routerLink]="['/toys-accessories']" [queryParams]="{search: 'KONG AirDog Squeakair Ball Dog Toy'}" class="underline hover:underline">KONG AirDog Squeakair Ball Dog Toy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="lg:basis-1/3 p-4">
+                <app-pet-recommendations></app-pet-recommendations>
+            </div>
         </div>
-        <div class="h-1/4 pt-2">
-            <app-pet-recommendations></app-pet-recommendations>
+    </div>
+    <div class="p-4">
+        <div class="flex flex-row justify-center">
+            <div>
+                <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/facebook.png" /></a>
+            </div>
+            <div>
+                <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/instagram.png" /></a>
+            </div>
+            <div>
+                <a href="#"><img class="h-12 w-12 p-1" src="../../../assets/images/social-networks/x.png" /></a>
+            </div>
         </div>
     </div>
   </div>

@@ -1,25 +1,19 @@
 <header>
-    <div class="flex flex-row h-full">
-        <div class="basis-1/2 md:basis-1/4 flex items-center justify-end sm:justify-start">
-            <div class="flex flex-shrink-0 items-center">
-                <img class="h-28 w-auto" src="../assets/images/logo.png" alt="Amazing Pets">
-            </div>
-        </div>
-        <div class="w-0 sm:basis-1/2 md:visible md:w-auto flex items-center justify-center title-background invisible">
-            <h1 class="text-7xl main-color pb-8 text-4xl lg:text-6xl">Amazing Pets</h1>
-        </div>
-        <div class="basis-1/2 md:basis-1/4 pr-2">
-            <div class="h-1/2 w-full flex items-center justify-end">
+    <div class="flex justify-end h-full title-background">
+        <div class="flex flex-row p-3">
+            <div>
                 <label class="relative block">
                     <span class="sr-only">Cart</span>
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <span class="absolute inset-y-0 left-0 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 secondary-color">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                         </svg>                                               
                     </span>
                     <label class="placeholder:italic placeholder:text-slate-400 block bg-white w-full rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm cart-shadow"><span class="rounded-full bg-blue-950 hover:bg-blue-900 text-white px-2 py-1/2">{{cartItems}}</span><span class="font-bold"> {{cartTotal | currency}}</span></label>
                 </label>
-                <button class="mr-2 pl-1 pt-1" (click)="onCartUpdate()">
+            </div>
+            <div class="items-center">
+                <button class="pl-2 pt-2" (click)="onCartUpdate()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                     </svg>

@@ -7,9 +7,10 @@ header {
 }
 
 .title-background {
-    background-image: url('../assets/images/background.png');
+    background-image: url('../assets/images/logo.png');
     background-repeat: no-repeat;
     background-position: bottom;
+    background-size: contain;
 }
 
 main {

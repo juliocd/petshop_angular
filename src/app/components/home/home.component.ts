@@ -12,6 +12,7 @@ export class HomeComponent {
 
   showPetDetails(petId: number) {
     this.dialog.open(PetDetailsComponent, {
+      autoFocus: false,
       data: {
         petId
       }

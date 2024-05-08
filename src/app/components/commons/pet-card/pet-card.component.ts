@@ -19,6 +19,7 @@ export class PetCardComponent {
 
   openPetDetailsDialog(petId: number) {
     this.dialog.open(PetDetailsComponent, {
+      autoFocus: false,
       data: {
         petId
       }
